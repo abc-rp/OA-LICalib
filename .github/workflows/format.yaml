@@ -1,0 +1,29 @@
+# This is a format job. Pre-commit has a first-party GitHub action, so we use
+# that: https://github.com/pre-commit/action
+
+name: format
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+
+jobs:
+  pre-commit:
+    name: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+      - uses: pre-commit/action@v3.0.0
+
+      # - name: Commit changes
+      #   run: |
+      #     git config --global user.name "GitHub Actions Bot"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #     git add -u
+      #     git diff --quiet && git diff --staged --quiet || (git commit -m "Apply pre-commit fixes" && git push origin ${{ github.head_ref }})
