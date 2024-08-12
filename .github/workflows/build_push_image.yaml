@@ -28,4 +28,4 @@ jobs:
           echo "tag=$TAG" >> $GITHUB_ENV
 
       - name: Push image to GHCR
-        run: docker push ghcr.io/${{ github.repository }}:${{ env.tag }}
+        run: docker push ghcr.io/$REPOSITORY_NAME:${{ env.tag }}
