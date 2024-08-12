@@ -1,0 +1,27 @@
+---
+- name: Run Podman container with build and launch commands
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Start and run the calibration tool in Podman container
+      containers.podman.podman_container:
+        name: calib_container
+        image: calib:v1
+        state: started
+        privileged: true
+        env:
+          DISPLAY: "{{ lookup('env', 'DISPLAY') }}"
+        volumes:
+          - "{{ lookup('env', 'HOME') }}/.Xauthority:/root/.Xauthority:Z"
+          - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+          - "{{ playbook_dir }}:/root/catkin_oa_calib/src/OA-LICalib"
+        command:
+          - bash
+          - -c
+          - |
+            cd /root/catkin_oa_calib &&
+            catkin_make -DCATKIN_WHITELIST_PACKAGES="" &&
+            source ./devel/setup.bash &&
+            roslaunch oa_licalib li_calib.launch
+        interactive: true
+        tty: true

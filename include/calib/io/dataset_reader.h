@@ -1,7 +1,7 @@
 /*
  * OA-LICalib:
  * Observability-Aware Intrinsic and Extrinsic Calibration of LiDAR-IMU Systems
- * 
+ *
  * Copyright (C) 2022 Jiajun Lv
  * Copyright (C) 2022 Xingxing Zuo
  * Copyright (C) 2022 Kewei Hu
