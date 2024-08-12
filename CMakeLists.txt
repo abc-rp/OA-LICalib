@@ -116,7 +116,7 @@ list(APPEND thirdparty_libraries
 )
 
 ################ Library #######################
-add_library(lib_calib 
+add_library(lib_calib
   src/trajectory/se3_trajectory.cpp
   src/trajectory/trajectory_estimator.cpp
   src/trajectory/trajectory_viewer.cpp
@@ -136,4 +136,3 @@ add_dependencies(li_calib_node  ${PROJECT_NAME}_generate_messages_cpp)
 
 add_executable(map_evaluation_tools src/app/map_evaluation_tools.cpp)
 target_link_libraries(map_evaluation_tools ${thirdparty_libraries})
-

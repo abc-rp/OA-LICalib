@@ -36,7 +36,7 @@ roslaunch oa_licalib li_calib.launch
 
 The intrinsics of an individual laser comprising a multi-beam 3D LiDAR.
 
-A example to calibrate extrinsics between LiDAR and IMU while simultaneously calibrating intrinsics of both LiDAR and IMU in simulation. You can find simulated data at [`./data/bag/simu_bag.bag`]. 
+A example to calibrate extrinsics between LiDAR and IMU while simultaneously calibrating intrinsics of both LiDAR and IMU in simulation. You can find simulated data at [`./data/bag/simu_bag.bag`].
 The ground truth of intrinsics are at `[./data/bag]` and of extrinsics are as follows:
 
 ```yaml
@@ -61,7 +61,7 @@ To achieve the best calibration results, you should tune the parameters in the `
 
 | Parameter                           | Value                                                     |
 |-------------------------------------|-----------------------------------------------------------|
-| ndtResolution | Resolution of NDT grid structure (VoxelGridCovariance)<br/>0,5 for indoor case and 1.0 for outdoor case | 
+| ndtResolution | Resolution of NDT grid structure (VoxelGridCovariance)<br/>0,5 for indoor case and 1.0 for outdoor case |
 | ndt_key_frame_downsample    | Resolutation parameter for voxel grid downsample function |
 | map_downsample_size       | Resolutation parameter for voxel grid downsample function |
 | knot_distance            | time interval |

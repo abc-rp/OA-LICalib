@@ -3,8 +3,8 @@
 MYPWD=$(pwd)
 
 #https://www.cnblogs.com/robinunix/p/11635560.html
-# set -x 
-# set -e 
+# set -x
+# set -e
 set -x
 set -e
 

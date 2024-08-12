@@ -17,8 +17,11 @@ use_gui: false
 # 当 segment_num = 1时，即用一段数据标定
 segment_num: 1
 selected_segment:
-  - {start_time: 0, end_time: 7, path_bag: /home/ha/catkin_oa_calib/src/OA-LICalib/data/bag/simu_bag.bag}
-
+  - {
+      start_time: 0,
+      end_time: 7,
+      path_bag: /home/ha/catkin_oa_calib/src/OA-LICalib/data/bag/simu_bag.bag,
+    }
 
 # If you select false, it calculate initial rotations.
 # If you know the approximate conversion between the sensors, set true.
@@ -44,9 +47,7 @@ extrinsic:
   Trans: [0.25, 0.13, 0.07]
   Trans_prior: [0.25, 0.13, 0.07]
 
-  Rot: [1, 0, 0,
-       0, 1, 0,
-       0, 0, 1]
+  Rot: [1, 0, 0, 0, 1, 0, 0, 0, 1]
 
   # Trans: [0.3, 0.15, 0.05]
 
