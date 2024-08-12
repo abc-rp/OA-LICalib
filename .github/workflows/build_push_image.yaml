@@ -23,7 +23,8 @@ jobs:
       - name: Build and tag image
         run: |
           COMMIT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-          docker build --build-arg GH_PAT=${{ secrets.GH_PAT }} --build-arg BRANCH_NAME=${{ env.BRANCH_NAME }} -t ghcr.io/${{ github.repository }}:$COMMIT_SHA -f ${{ env.DOCKERFILE_PATH }} .
+          TAG="${COMMIT_SHA}"
+          docker build --build-arg GH_PAT=${{ secrets.GH_PAT }} --build-arg BRANCH_NAME=${{ env.BRANCH_NAME }} -t ghcr.io/${{ github.repository }}:$TAG -f ${{ env.DOCKERFILE_PATH }} .
           echo "tag=$TAG" >> $GITHUB_ENV
 
       - name: Push image to GHCR
